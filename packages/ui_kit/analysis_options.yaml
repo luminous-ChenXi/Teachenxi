@@ -1,0 +1,5 @@
+# ui_kit：Flutter 包 lint（根文件声明“各包自带”，此处落地）
+analyzer:
+  exclude:
+    - build/**
+include: package:flutter_lints/flutter.yaml

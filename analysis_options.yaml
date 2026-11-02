@@ -1,0 +1,9 @@
+# 根分析配置：仅作为说明载体；各包自带 analysis_options.yaml
+# 包级规则差异：
+#   - 纯 Dart 包（contracts/core_agent/learning_engine/provider_kit/data_layer）
+#     include: package:lints/recommended.yaml
+#   - Flutter 包（ui_kit/apps）
+#     include: package:flutter_lints/flutter.yaml
+# 依赖方向违规由 tools/check_imports.py 在 CI 强制（比 lint 更严格），
+# 本文件不重复配置 import 规则。
+include: package:lints/recommended.yaml

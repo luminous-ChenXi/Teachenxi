@@ -1,0 +1,27 @@
+name: teachenxi
+description: "Teachenxi 组装根：UI features + Riverpod 注入 + 应用层用例（唯一允许 import 全部业务包之处）"
+version: 0.1.0
+publish_to: none
+environment:
+  sdk: ^3.6.0
+  flutter: '>=3.35.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^2.6.1   # M0 末锁版
+  contracts:
+    path: ../../packages/contracts
+  core_agent:
+    path: ../../packages/core_agent
+  learning_engine:
+    path: ../../packages/learning_engine
+  provider_kit:
+    path: ../../packages/provider_kit
+  data_layer:
+    path: ../../packages/data_layer
+  ui_kit:
+    path: ../../packages/ui_kit
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter

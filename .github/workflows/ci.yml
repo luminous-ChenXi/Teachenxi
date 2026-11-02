@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  guard:
+    name: 契约守护与密钥扫描
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 依赖方向检查（六边形边界）
+        run: python tools/check_imports.py
+      - name: 密钥扫描（gitleaks）
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  flutter:
+    name: analyze + test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          # M0 末锁定版本后修改此处（对应 ohos 稳定基线的能力集合）
+          flutter-version: "3.35.0"
+          channel: stable
+          cache: true
+      - run: dart pub global activate melos 6.3.2
+      - run: melos bootstrap
+      - run: melos run analyze
+      - run: melos run test

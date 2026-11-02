@@ -1,0 +1,31 @@
+# Melos monorepo 配置（melos 6.x）
+# 结构与依赖规则见 docs/SAS-软件架构说明书.md §6 与 docs/02-软件架构与工作流程.md §2.3
+name: teachenxi
+
+packages:
+  - apps/**
+  - packages/**
+
+# 预留：plugins/** 自研平台插件上架后加入 workspace
+#  - plugins/**
+
+command:
+  bootstrap:
+    runPubGetInParallel: true
+
+scripts:
+  analyze:
+    description: 全仓静态分析
+    exec: flutter analyze
+    packageFilters:
+      dirExists: lib
+  test:
+    description: 全仓测试（域层黄金向量必须全绿）
+    exec: flutter test
+    packageFilters:
+      dirExists: test
+  format:
+    description: 统一格式化
+    exec: dart format --set-exit-if-changed .
+    packageFilters:
+      dirExists: lib

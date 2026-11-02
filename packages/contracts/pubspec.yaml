@@ -1,0 +1,6 @@
+name: contracts
+description: "Teachenxi 契约包：消息模型/StreamEvent/emotion/端口接口/DTO【架构师所有；仅依赖 Dart SDK】"
+version: 0.1.0
+publish_to: none
+environment:
+  sdk: ^3.6.0

@@ -1,0 +1,13 @@
+name: data_layer
+description: "drift 仓储、BLOB 向量检索、pdfium/docx 解析（依赖方向受 tools/check_imports.py 强制）"
+version: 0.1.0
+publish_to: none
+environment:
+  sdk: ^3.6.0
+dependencies:
+  contracts:
+    path: ../contracts
+  drift: ^2.28.0
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.25.0

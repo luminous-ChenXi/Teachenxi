@@ -1,0 +1,50 @@
+# Teachenxi .gitignore（Flutter/Dart monorepo）
+
+# —— 密钥与环境（开源红线：任何真实 Key 不得入库）——
+.env
+.env.*
+!.env.example
+*.local.yml
+!*local.yml.example
+**/api_keys.*
+*.keystore
+*.jks
+key.properties
+
+# —— Dart / Flutter ——
+.dart_tool/
+.packages
+build/
+coverage/
+*.g.dart.tmp
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+pubspec.lock
+# apps 除外时可按需取消下行注释（monorepo 中通常忽略全部 lock）
+!apps/teachenxi/pubspec.lock
+
+# —— Melos ——
+.dshell/
+
+# —— IDE ——
+.idea/
+*.iml
+.vscode/
+!.vscode/launch.json.example
+*.swp
+
+# —— 系统 ——
+.DS_Store
+Thumbs.db
+*.log
+
+# —— 文档临时产物 ——
+docs/_drafts/
+
+# —— 参考仓库（外部克隆，不入库）——
+reference/
+
+# —— 本地备份压缩包 ——
+/Teachenxi.zip
